@@ -2,16 +2,10 @@ version: 2.1
 
 jobs:
   build:
-    docker:
-      - image: cimg/python:3.12
+    machine:
+      image: ubuntu-2004:current # Full VM with Docker pre-installed
     steps:
       - checkout
-
-      - run:
-          name: Install Docker client
-          command: |
-            sudo apt-get update
-            sudo apt-get install -y docker.io
 
       - run:
           name: Build Docker image
